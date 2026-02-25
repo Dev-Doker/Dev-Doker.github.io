@@ -1,221 +1,1024 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SkyHost — Надёжный хостинг</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexaHost — Надёжный веб-хостинг</title>
+  <meta name="description" content="NexaHost — современный облачный хостинг с молниеносной скоростью, 99.99% uptime и круглосуточной поддержкой. Запустите сайт за 60 секунд!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    :root {
+      --bg: #050a18;
+      --bg2: #0b1428;
+      --accent: #5b8dee;
+      --accent2: #a78bfa;
+      --accent3: #34d399;
+      --text: #e2e8f0;
+      --muted: #8899b4;
+      --card: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+      --glow: rgba(91,141,238,0.35);
+    }
 
-<style>
-* {margin:0;padding:0;box-sizing:border-box;}
-body {
-    font-family: 'Inter', sans-serif;
-    background:#0f172a;
-    color:#fff;
-    line-height:1.6;
-}
-header {
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-    padding:100px 20px;
-    text-align:center;
-}
-header h1 {
-    font-size:48px;
-    font-weight:700;
-}
-header p {
-    margin-top:15px;
-    font-size:20px;
-    opacity:0.9;
-}
-.btn {
-    display:inline-block;
-    margin-top:30px;
-    padding:15px 35px;
-    background:#fff;
-    color:#111;
-    border-radius:50px;
-    text-decoration:none;
-    font-weight:600;
-    transition:0.3s;
-}
-.btn:hover {
-    background:#ddd;
-}
-nav {
-    background:#0b1220;
-    padding:15px;
-    text-align:center;
-    position:sticky;
-    top:0;
-}
-nav a {
-    color:#fff;
-    text-decoration:none;
-    margin:0 20px;
-    font-weight:500;
-    transition:0.3s;
-}
-nav a:hover {
-    color:#7c3aed;
-}
-.container {
-    max-width:1200px;
-    margin:auto;
-    padding:80px 20px;
-}
-.section-title {
-    text-align:center;
-    font-size:32px;
-    margin-bottom:60px;
-}
-.features {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-}
-.feature {
-    background:#1e293b;
-    padding:30px;
-    border-radius:15px;
-    transition:0.3s;
-}
-.feature:hover {
-    transform:translateY(-8px);
-    background:#334155;
-}
-.pricing {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-}
-.plan {
-    background:#1e293b;
-    padding:40px;
-    border-radius:20px;
-    text-align:center;
-    transition:0.3s;
-    border:1px solid rgba(255,255,255,0.05);
-}
-.plan:hover {
-    transform:scale(1.05);
-}
-.price {
-    font-size:40px;
-    margin:20px 0;
-    font-weight:700;
-}
-.plan ul {
-    list-style:none;
-    margin:20px 0;
-}
-.plan ul li {
-    margin:10px 0;
-}
-footer {
-    text-align:center;
-    padding:30px;
-    background:#0b1220;
-    margin-top:60px;
-    font-size:14px;
-    opacity:0.7;
-}
-@media(max-width:768px){
-    header h1 {font-size:32px;}
-    header p {font-size:16px;}
-}
-</style>
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ── NOISE TEXTURE ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: .4;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 5%;
+      background: rgba(5,10,24,.7);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 500;
+      transition: color .25s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff !important;
+      padding: .5rem 1.3rem;
+      border-radius: 50px;
+      font-weight: 600 !important;
+      transition: opacity .25s, transform .2s !important;
+    }
+
+    .nav-cta:hover { opacity: .85; transform: translateY(-1px); color: #fff !important; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 5% 5rem;
+      overflow: hidden;
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    .orb1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(91,141,238,.25) 0%, transparent 70%);
+      top: -150px; left: -150px;
+      animation: drift 12s ease-in-out infinite alternate;
+    }
+
+    .orb2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(167,139,250,.2) 0%, transparent 70%);
+      bottom: -100px; right: -100px;
+      animation: drift 15s ease-in-out infinite alternate-reverse;
+    }
+
+    .orb3 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(52,211,153,.15) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes drift {
+      from { transform: translate(0, 0); }
+      to   { transform: translate(60px, 40px); }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(91,141,238,.1);
+      border: 1px solid rgba(91,141,238,.3);
+      border-radius: 50px;
+      padding: .35rem 1rem;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      animation: fadeUp .6s ease both;
+    }
+
+    .badge-dot {
+      width: 7px; height: 7px;
+      background: var(--accent3);
+      border-radius: 50%;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(.7); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -2px;
+      max-width: 900px;
+      animation: fadeUp .7s .1s ease both;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 50%, var(--accent3) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 600px;
+      font-size: 1.15rem;
+      color: var(--muted);
+      margin: 1.5rem auto 2.5rem;
+      animation: fadeUp .7s .2s ease both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeUp .7s .3s ease both;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      padding: .9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      box-shadow: 0 0 30px var(--glow);
+      transition: transform .2s, box-shadow .2s;
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 50px var(--glow); }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: .9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      background: rgba(255,255,255,.03);
+      backdrop-filter: blur(10px);
+      transition: border-color .2s, background .2s;
+      white-space: nowrap;
+    }
+
+    .btn-outline:hover { border-color: var(--accent); background: rgba(91,141,238,.07); }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeUp .7s .4s ease both;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label { font-size: .8rem; color: var(--muted); margin-top: .2rem; }
+
+    /* ── FEATURES ── */
+    .section {
+      padding: 6rem 5%;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: .8rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      margin-top: .8rem;
+      font-size: 1.05rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: border-color .3s, transform .3s, box-shadow .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(91,141,238,.4);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.4);
+    }
+
+    .feature-card:hover::before { opacity: 1; }
+
+    .feature-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .icon-blue  { background: rgba(91,141,238,.15); }
+    .icon-purple{ background: rgba(167,139,250,.15); }
+    .icon-green { background: rgba(52,211,153,.15); }
+    .icon-orange{ background: rgba(251,146,60,.15); }
+    .icon-pink  { background: rgba(244,114,182,.15); }
+    .icon-cyan  { background: rgba(34,211,238,.15); }
+
+    .feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .5rem; }
+    .feature-card p  { font-size: .9rem; color: var(--muted); }
+
+    /* ── PRICING ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .plan-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2.2rem;
+      transition: transform .3s, box-shadow .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .plan-card.popular {
+      background: linear-gradient(145deg, rgba(91,141,238,.12), rgba(167,139,250,.08));
+      border-color: rgba(91,141,238,.5);
+      transform: scale(1.03);
+    }
+
+    .plan-card.popular::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      padding: 1px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .plan-card:hover { transform: translateY(-6px); box-shadow: 0 25px 70px rgba(0,0,0,.4); }
+    .plan-card.popular:hover { transform: scale(1.03) translateY(-6px); }
+
+    .popular-badge {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: .3rem .9rem;
+      border-radius: 50px;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .plan-name { font-size: 1.1rem; font-weight: 700; margin-bottom: .5rem; }
+
+    .plan-price {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: .2rem;
+    }
+
+    .plan-price span { font-size: 1rem; font-weight: 400; color: var(--muted); vertical-align: middle; }
+
+    .plan-sub { font-size: .85rem; color: var(--muted); margin-bottom: 1.5rem; }
+
+    .plan-features { list-style: none; margin-bottom: 2rem; }
+
+    .plan-features li {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .9rem;
+      padding: .4rem 0;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .plan-features li:last-child { border-bottom: none; }
+
+    .check { color: var(--accent3); font-size: 1rem; }
+
+    .btn-plan {
+      display: block;
+      text-align: center;
+      padding: .85rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: .95rem;
+      text-decoration: none;
+      transition: transform .2s, opacity .2s;
+    }
+
+    .btn-plan:hover { transform: translateY(-2px); opacity: .85; }
+
+    .btn-plan-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      box-shadow: 0 0 25px var(--glow);
+    }
+
+    .btn-plan-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: rgba(255,255,255,.03);
+    }
+
+    .btn-plan-outline:hover { border-color: var(--accent); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.8rem;
+      transition: transform .3s;
+    }
+
+    .testimonial-card:hover { transform: translateY(-4px); }
+
+    .stars { color: #fbbf24; font-size: 1rem; margin-bottom: 1rem; }
+
+    .testimonial-text { font-size: .95rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.2rem; }
+
+    .testimonial-author { display: flex; align-items: center; gap: .8rem; }
+
+    .avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: .9rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .av1 { background: linear-gradient(135deg, #5b8dee, #a78bfa); }
+    .av2 { background: linear-gradient(135deg, #34d399, #5b8dee); }
+    .av3 { background: linear-gradient(135deg, #f472b6, #a78bfa); }
+
+    .author-name { font-size: .9rem; font-weight: 700; }
+    .author-role { font-size: .78rem; color: var(--muted); }
+
+    /* ── UPTIME BANNER ── */
+    .uptime-section {
+      background: linear-gradient(135deg, rgba(91,141,238,.1), rgba(167,139,250,.08));
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 5%;
+      text-align: center;
+    }
+
+    .uptime-value {
+      font-size: clamp(4rem, 12vw, 8rem);
+      font-weight: 900;
+      letter-spacing: -4px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+
+    .uptime-label { font-size: 1.2rem; color: var(--muted); margin-top: .5rem; }
+
+    /* ── FAQ ── */
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 1rem;
+      background: var(--card);
+      overflow: hidden;
+      transition: border-color .25s;
+    }
+
+    .faq-item:hover { border-color: rgba(91,141,238,.4); }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.3rem 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: .95rem;
+      user-select: none;
+    }
+
+    .faq-icon {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: rgba(91,141,238,.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      transition: transform .3s;
+    }
+
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease, padding .3s;
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.7;
+      padding: 0 1.5rem;
+    }
+
+    .faq-item.open .faq-answer { max-height: 200px; padding: 0 1.5rem 1.3rem; }
+
+    /* ── CTA ── */
+    .cta-section {
+      padding: 8rem 5%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(91,141,238,.12) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      max-width: 700px;
+      margin: 0 auto 1.2rem;
+    }
+
+    .cta-section p { color: var(--muted); font-size: 1.1rem; margin-bottom: 2.5rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .85rem;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    .footer-copy { color: var(--muted); font-size: .8rem; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-stats { gap: 1.5rem; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-    <h1>🚀 SkyHost</h1>
-    <p>Быстрый, безопасный и доступный хостинг для вашего сайта</p>
-    <a href="#pricing" class="btn">Выбрать тариф</a>
-</header>
-
+<!-- ── NAV ── -->
 <nav>
-    <a href="#features">Преимущества</a>
-    <a href="#pricing">Тарифы</a>
-    <a href="#contact">Контакты</a>
+  <div class="nav-logo">⚡ NexaHost</div>
+  <ul class="nav-links">
+    <li><a href="#features">Возможности</a></li>
+    <li><a href="#pricing">Тарифы</a></li>
+    <li><a href="#reviews">Отзывы</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#start" class="nav-cta">Начать бесплатно</a></li>
+  </ul>
 </nav>
 
-<section class="container" id="features">
-    <h2 class="section-title">Почему выбирают нас</h2>
-    <div class="features">
-        <div class="feature">
-            <h3>⚡ Высокая скорость</h3>
-            <p>SSD NVMe диски и современные серверы обеспечивают максимальную производительность.</p>
-        </div>
-        <div class="feature">
-            <h3>🔒 Надёжная защита</h3>
-            <p>SSL-сертификаты, защита от DDoS и ежедневные резервные копии.</p>
-        </div>
-        <div class="feature">
-            <h3>☁️ 99.9% Uptime</h3>
-            <p>Стабильная работа серверов без перебоев и простоев.</p>
-        </div>
-        <div class="feature">
-            <h3>💬 Поддержка 24/7</h3>
-            <p>Наша команда всегда готова помочь вам в любое время.</p>
-        </div>
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-orb orb3"></div>
+
+  <div class="hero-badge">
+    <span class="badge-dot"></span>
+    Более 50 000 сайтов уже работают на NexaHost
+  </div>
+
+  <h1>
+    Хостинг нового <br />
+    поколения для <span class="gradient-text">вашего бизнеса</span>
+  </h1>
+
+  <p>
+    Молниеносная скорость, 99.99% uptime и интеллектуальная защита.
+    Разверните сайт за 60 секунд без лишних настроек.
+  </p>
+
+  <div class="hero-btns">
+    <a href="#start" class="btn-primary" id="hero-cta-btn">Попробовать бесплатно →</a>
+    <a href="#features" class="btn-outline">Узнать больше</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num" id="cnt1">0</div>
+      <div class="stat-label">Активных сайтов</div>
     </div>
-</section>
-
-<section class="container" id="pricing">
-    <h2 class="section-title">Тарифные планы</h2>
-    <div class="pricing">
-        <div class="plan">
-            <h3>Start</h3>
-            <div class="price">199₽</div>
-            <ul>
-                <li>1 сайт</li>
-                <li>10 ГБ SSD</li>
-                <li>Бесплатный SSL</li>
-                <li>Поддержка 24/7</li>
-            </ul>
-            <a href="#" class="btn">Заказать</a>
-        </div>
-
-        <div class="plan">
-            <h3>Pro</h3>
-            <div class="price">399₽</div>
-            <ul>
-                <li>5 сайтов</li>
-                <li>50 ГБ SSD</li>
-                <li>Бесплатный SSL</li>
-                <li>Ежедневные бэкапы</li>
-            </ul>
-            <a href="#" class="btn">Заказать</a>
-        </div>
-
-        <div class="plan">
-            <h3>Business</h3>
-            <div class="price">799₽</div>
-            <ul>
-                <li>Безлимит сайтов</li>
-                <li>200 ГБ SSD</li>
-                <li>Приоритетная поддержка</li>
-                <li>Защита от DDoS</li>
-            </ul>
-            <a href="#" class="btn">Заказать</a>
-        </div>
+    <div class="stat">
+      <div class="stat-num" id="cnt2">0</div>
+      <div class="stat-label">Стран присутствия</div>
     </div>
+    <div class="stat">
+      <div class="stat-num">99.99%</div>
+      <div class="stat-label">Гарантия Uptime</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="cnt3">0</div>
+      <div class="stat-label">Клиентов довольны</div>
+    </div>
+  </div>
 </section>
 
-<section class="container" id="contact">
-    <h2 class="section-title">Контакты</h2>
-    <p style="text-align:center;">
-        📧 support@skyhost.ru<br>
-        📞 +7 (900) 123-45-67
-    </p>
+<!-- ── UPTIME ── -->
+<div class="uptime-section">
+  <div class="uptime-value">99.99%</div>
+  <div class="uptime-label">Гарантированный Uptime по SLA — или мы возвращаем деньги</div>
+</div>
+
+<!-- ── FEATURES ── -->
+<section class="section" id="features">
+  <div class="section-header reveal">
+    <div class="section-tag">Возможности</div>
+    <h2 class="section-title">Всё что нужно для вашего проекта</h2>
+    <p class="section-sub">Профессиональный инструментарий в одном месте</p>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <div class="feature-icon icon-blue">⚡</div>
+      <h3>NVMe SSD в каждом плане</h3>
+      <p>Скорость чтения свыше 3500 МБ/с. Ваш сайт загружается мгновенно даже при пиковой нагрузке.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon icon-purple">🛡️</div>
+      <h3>DDoS‑защита Pro</h3>
+      <p>Многоуровневая фильтрация атак до 1 Тбит/с. Атаки отражаются автоматически, без вашего участия.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon icon-green">🌍</div>
+      <h3>Глобальная CDN</h3>
+      <p>Более 60 точек присутствия по всему миру. Контент доставляется с ближайшего сервера.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon icon-orange">🔒</div>
+      <h3>SSL бесплатно</h3>
+      <p>Сертификаты Let's Encrypt и Wildcard выдаются автоматически и продлеваются без вашего участия.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon icon-pink">🔄</div>
+      <h3>Ежедневные бэкапы</h3>
+      <p>Резервные копии хранятся 30 дней. Восстановление одним кликом в любой момент времени.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon icon-cyan">📊</div>
+      <h3>Аналитика в реальном времени</h3>
+      <p>Мониторинг нагрузки, трафика и производительности с обновлением каждые 10 секунд.</p>
+    </div>
+  </div>
 </section>
 
+<!-- ── PRICING ── -->
+<section class="section" id="pricing" style="background: var(--bg2);">
+  <div class="section-header reveal">
+    <div class="section-tag">Тарифы</div>
+    <h2 class="section-title">Прозрачные цены без скрытых комиссий</h2>
+    <p class="section-sub">Первые 14 дней — бесплатно. Карта не нужна.</p>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="plan-card reveal">
+      <div class="plan-name">Старт</div>
+      <div class="plan-price">₽290 <span>/ мес</span></div>
+      <div class="plan-sub">Идеально для личных проектов</div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> 1 сайт</li>
+        <li><span class="check">✓</span> 10 ГБ NVMe SSD</li>
+        <li><span class="check">✓</span> 5 Email‑ящиков</li>
+        <li><span class="check">✓</span> SSL бесплатно</li>
+        <li><span class="check">✓</span> Uptime 99.9%</li>
+      </ul>
+      <a href="#start" class="btn-plan btn-plan-outline">Начать бесплатно</a>
+    </div>
+
+    <div class="plan-card popular reveal">
+      <div class="popular-badge">★ Популярный</div>
+      <div class="plan-name">Бизнес</div>
+      <div class="plan-price">₽790 <span>/ мес</span></div>
+      <div class="plan-sub">Для растущих проектов</div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> 10 сайтов</li>
+        <li><span class="check">✓</span> 50 ГБ NVMe SSD</li>
+        <li><span class="check">✓</span> Безлимит Email</li>
+        <li><span class="check">✓</span> Wildcard SSL</li>
+        <li><span class="check">✓</span> CDN глобальная</li>
+        <li><span class="check">✓</span> Uptime 99.99%</li>
+      </ul>
+      <a href="#start" class="btn-plan btn-plan-primary">Начать бесплатно</a>
+    </div>
+
+    <div class="plan-card reveal">
+      <div class="plan-name">Про</div>
+      <div class="plan-price">₽1990 <span>/ мес</span></div>
+      <div class="plan-sub">Для высоконагруженных сайтов</div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Безлимит сайтов</li>
+        <li><span class="check">✓</span> 200 ГБ NVMe SSD</li>
+        <li><span class="check">✓</span> Выделенный IP</li>
+        <li><span class="check">✓</span> DDoS‑защита Pro</li>
+        <li><span class="check">✓</span> Бэкапы 30 дней</li>
+        <li><span class="check">✓</span> Приоритетная поддержка 24/7</li>
+      </ul>
+      <a href="#start" class="btn-plan btn-plan-outline">Начать бесплатно</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="section" id="reviews">
+  <div class="section-header reveal">
+    <div class="section-tag">Отзывы</div>
+    <h2 class="section-title">Нам доверяют тысячи клиентов</h2>
+    <p class="section-sub">Реальные отзывы реальных людей</p>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">«Перенесли магазин с другого хостинга — скорость загрузки выросла в 3 раза. Конверсия тоже подтянулась. Поддержка отвечает за 5 минут, рекомендую!»</p>
+      <div class="testimonial-author">
+        <div class="avatar av1">АК</div>
+        <div>
+          <div class="author-name">Артём Козлов</div>
+          <div class="author-role">Владелец интернет-магазина</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">«Веду несколько клиентских сайтов на плане Бизнес. Ни одного падения за 8 месяцев. Панель управления интуитивная, бэкапы работают как часы.»</p>
+      <div class="testimonial-author">
+        <div class="avatar av2">МВ</div>
+        <div>
+          <div class="author-name">Мария Воронова</div>
+          <div class="author-role">Веб-разработчик</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">«Наш блог выдержал новостной пик — 200k посетителей за час. Сервер даже не нагрелся. Ребята знают своё дело!»</p>
+      <div class="testimonial-author">
+        <div class="avatar av3">ДМ</div>
+        <div>
+          <div class="author-name">Денис Матвеев</div>
+          <div class="author-role">Главный редактор медиа</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="section" id="faq" style="background: var(--bg2);">
+  <div class="section-header reveal">
+    <div class="section-tag">FAQ</div>
+    <h2 class="section-title">Часто задаваемые вопросы</h2>
+  </div>
+
+  <div class="faq-list reveal">
+    <div class="faq-item">
+      <div class="faq-question" role="button" aria-expanded="false" id="fq1">
+        Нужно ли вводить данные карты для бесплатного периода?
+        <div class="faq-icon" aria-hidden="true">+</div>
+      </div>
+      <div class="faq-answer" role="region" aria-labelledby="fq1">
+        Нет. Пробный период 14 дней активируется только по email. Данные карты запрашиваются лишь при переходе на платный тариф.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" role="button" aria-expanded="false" id="fq2">
+        Могу ли я перенести сайт с другого хостинга?
+        <div class="faq-icon" aria-hidden="true">+</div>
+      </div>
+      <div class="faq-answer" role="region" aria-labelledby="fq2">
+        Да! Наша служба миграции перенесёт ваш сайт бесплатно и без простоев. Просто откройте тикет — и мы всё сделаем за вас.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" role="button" aria-expanded="false" id="fq3">
+        Где физически находятся серверы?
+        <div class="faq-icon" aria-hidden="true">+</div>
+      </div>
+      <div class="faq-answer" role="region" aria-labelledby="fq3">
+        Основные дата-центры — Москва, Амстердам и Франкфурт. CDN-узлы расположены в 60+ городах по всему миру для максимальной скорости.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" role="button" aria-expanded="false" id="fq4">
+        Что значит «безлимитный» трафик?
+        <div class="faq-icon" aria-hidden="true">+</div>
+      </div>
+      <div class="faq-answer" role="region" aria-labelledby="fq4">
+        Мы не ограничиваем и не тарифицируем входящий трафик. Политика fair use позволяет использовать ресурсы без дополнительных счетов при разумной нагрузке.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" role="button" aria-expanded="false" id="fq5">
+        Как работает гарантия возврата денег?
+        <div class="faq-icon" aria-hidden="true">+</div>
+      </div>
+      <div class="faq-answer" role="region" aria-labelledby="fq5">
+        Если в течение 30 дней с момента оплаты вам что-то не понравится — мы вернём деньги полностью, без вопросов и бюрократии.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section" id="start">
+  <div class="reveal">
+    <h2>Готовы запустить<br /><span class="gradient-text">ваш проект?</span></h2>
+    <p>14 дней бесплатно. Карта не нужна. Отмена в любой момент.</p>
+    <a href="#" class="btn-primary" id="cta-main-btn" style="font-size:1.1rem; padding:1rem 2.8rem;">
+      Начать бесплатно — это займёт 60 сек →
+    </a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
 <footer>
-    © 2026 SkyHost — Надёжный хостинг для вашего бизнеса
+  <div class="footer-logo">⚡ NexaHost</div>
+  <div class="footer-links">
+    <a href="#features">Возможности</a>
+    <a href="#pricing">Тарифы</a>
+    <a href="#reviews">Отзывы</a>
+    <a href="#faq">FAQ</a>
+    <a href="#">Политика конфиденциальности</a>
+  </div>
+  <div class="footer-copy">© 2026 NexaHost. Все права защищены.</div>
 </footer>
 
+<script>
+  // ── COUNTER ANIMATION ──
+  function animateCounter(el, target, suffix = '') {
+    let start = 0;
+    const duration = 2000;
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(ease * target).toLocaleString('ru') + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  let countersStarted = false;
+  const heroSection = document.querySelector('.hero');
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !countersStarted) {
+        countersStarted = true;
+        animateCounter(document.getElementById('cnt1'), 50000, '+');
+        animateCounter(document.getElementById('cnt2'), 60, '+');
+        animateCounter(document.getElementById('cnt3'), 98, '%');
+      }
+    });
+  }, { threshold: 0.4 });
+
+  counterObserver.observe(heroSection);
+
+  // ── SCROLL REVEAL ──
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // ── FAQ ACCORDION ──
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      } else {
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  // ── NAV SCROLL EFFECT ──
+  const navEl = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    navEl.style.background = window.scrollY > 60
+      ? 'rgba(5,10,24,.95)'
+      : 'rgba(5,10,24,.7)';
+  });
+</script>
 </body>
 </html>
