@@ -1,178 +1,220 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>TechFuture — Технологии будущего</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkyHost — Надёжный хостинг</title>
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0f172a;
-            color: #fff;
-            line-height: 1.6;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        header {
-            background: linear-gradient(135deg, #1e3a8a, #9333ea);
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 48px;
-            font-weight: 700;
-        }
-
-        header p {
-            margin-top: 15px;
-            font-size: 20px;
-            opacity: 0.9;
-        }
-
-        nav {
-            background: rgba(15, 23, 42, 0.95);
-            padding: 15px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            backdrop-filter: blur(10px);
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #a78bfa;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 60px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 50px;
-            font-weight: 600;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: #1e293b;
-            padding: 30px;
-            border-radius: 15px;
-            transition: 0.4s ease;
-            cursor: pointer;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            background: #334155;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-        }
-
-        .card h3 {
-            margin-bottom: 15px;
-            font-size: 22px;
-        }
-
-        .card p {
-            opacity: 0.85;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #0f172a;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 60px;
-            font-size: 14px;
-            opacity: 0.7;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 32px;
-            }
-
-            header p {
-                font-size: 16px;
-            }
-        }
-    </style>
+<style>
+* {margin:0;padding:0;box-sizing:border-box;}
+body {
+    font-family: 'Inter', sans-serif;
+    background:#0f172a;
+    color:#fff;
+    line-height:1.6;
+}
+header {
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    padding:100px 20px;
+    text-align:center;
+}
+header h1 {
+    font-size:48px;
+    font-weight:700;
+}
+header p {
+    margin-top:15px;
+    font-size:20px;
+    opacity:0.9;
+}
+.btn {
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 35px;
+    background:#fff;
+    color:#111;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+.btn:hover {
+    background:#ddd;
+}
+nav {
+    background:#0b1220;
+    padding:15px;
+    text-align:center;
+    position:sticky;
+    top:0;
+}
+nav a {
+    color:#fff;
+    text-decoration:none;
+    margin:0 20px;
+    font-weight:500;
+    transition:0.3s;
+}
+nav a:hover {
+    color:#7c3aed;
+}
+.container {
+    max-width:1200px;
+    margin:auto;
+    padding:80px 20px;
+}
+.section-title {
+    text-align:center;
+    font-size:32px;
+    margin-bottom:60px;
+}
+.features {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+.feature {
+    background:#1e293b;
+    padding:30px;
+    border-radius:15px;
+    transition:0.3s;
+}
+.feature:hover {
+    transform:translateY(-8px);
+    background:#334155;
+}
+.pricing {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+.plan {
+    background:#1e293b;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    transition:0.3s;
+    border:1px solid rgba(255,255,255,0.05);
+}
+.plan:hover {
+    transform:scale(1.05);
+}
+.price {
+    font-size:40px;
+    margin:20px 0;
+    font-weight:700;
+}
+.plan ul {
+    list-style:none;
+    margin:20px 0;
+}
+.plan ul li {
+    margin:10px 0;
+}
+footer {
+    text-align:center;
+    padding:30px;
+    background:#0b1220;
+    margin-top:60px;
+    font-size:14px;
+    opacity:0.7;
+}
+@media(max-width:768px){
+    header h1 {font-size:32px;}
+    header p {font-size:16px;}
+}
+</style>
 </head>
+
 <body>
 
 <header>
-    <h1>🚀 TechFuture</h1>
-    <p>Мир технологий, инноваций и цифрового будущего</p>
+    <h1>🚀 SkyHost</h1>
+    <p>Быстрый, безопасный и доступный хостинг для вашего сайта</p>
+    <a href="#pricing" class="btn">Выбрать тариф</a>
 </header>
 
 <nav>
-    <a href="#">Главная</a>
-    <a href="#tech">Технологии</a>
-    <a href="#about">О проекте</a>
+    <a href="#features">Преимущества</a>
+    <a href="#pricing">Тарифы</a>
     <a href="#contact">Контакты</a>
 </nav>
 
-<section class="container" id="tech">
-    <h2 class="section-title">Популярные технологии</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>🤖 Искусственный интеллект</h3>
-            <p>Машинное обучение, нейросети и автоматизация процессов будущего.</p>
+<section class="container" id="features">
+    <h2 class="section-title">Почему выбирают нас</h2>
+    <div class="features">
+        <div class="feature">
+            <h3>⚡ Высокая скорость</h3>
+            <p>SSD NVMe диски и современные серверы обеспечивают максимальную производительность.</p>
         </div>
-
-        <div class="card">
-            <h3>🌐 Web 3.0</h3>
-            <p>Децентрализация, блокчейн и новая эра интернета.</p>
+        <div class="feature">
+            <h3>🔒 Надёжная защита</h3>
+            <p>SSL-сертификаты, защита от DDoS и ежедневные резервные копии.</p>
         </div>
-
-        <div class="card">
-            <h3>☁️ Облачные технологии</h3>
-            <p>Гибкость, масштабируемость и безопасность в облаке.</p>
+        <div class="feature">
+            <h3>☁️ 99.9% Uptime</h3>
+            <p>Стабильная работа серверов без перебоев и простоев.</p>
         </div>
-
-        <div class="card">
-            <h3>🔐 Кибербезопасность</h3>
-            <p>Защита данных и цифровых систем в современном мире.</p>
+        <div class="feature">
+            <h3>💬 Поддержка 24/7</h3>
+            <p>Наша команда всегда готова помочь вам в любое время.</p>
         </div>
     </div>
 </section>
 
-<section class="container" id="about">
-    <h2 class="section-title">О проекте</h2>
-    <p style="text-align:center; max-width:700px; margin:auto;">
-        TechFuture — это платформа, посвящённая современным технологиям, 
-        программированию и инновациям. Мы делимся новостями, аналитикой 
-        и обучающими материалами для разработчиков и энтузиастов.
+<section class="container" id="pricing">
+    <h2 class="section-title">Тарифные планы</h2>
+    <div class="pricing">
+        <div class="plan">
+            <h3>Start</h3>
+            <div class="price">199₽</div>
+            <ul>
+                <li>1 сайт</li>
+                <li>10 ГБ SSD</li>
+                <li>Бесплатный SSL</li>
+                <li>Поддержка 24/7</li>
+            </ul>
+            <a href="#" class="btn">Заказать</a>
+        </div>
+
+        <div class="plan">
+            <h3>Pro</h3>
+            <div class="price">399₽</div>
+            <ul>
+                <li>5 сайтов</li>
+                <li>50 ГБ SSD</li>
+                <li>Бесплатный SSL</li>
+                <li>Ежедневные бэкапы</li>
+            </ul>
+            <a href="#" class="btn">Заказать</a>
+        </div>
+
+        <div class="plan">
+            <h3>Business</h3>
+            <div class="price">799₽</div>
+            <ul>
+                <li>Безлимит сайтов</li>
+                <li>200 ГБ SSD</li>
+                <li>Приоритетная поддержка</li>
+                <li>Защита от DDoS</li>
+            </ul>
+            <a href="#" class="btn">Заказать</a>
+        </div>
+    </div>
+</section>
+
+<section class="container" id="contact">
+    <h2 class="section-title">Контакты</h2>
+    <p style="text-align:center;">
+        📧 support@skyhost.ru<br>
+        📞 +7 (900) 123-45-67
     </p>
 </section>
 
 <footer>
-    © 2026 TechFuture | Создано для GitHub Pages
+    © 2026 SkyHost — Надёжный хостинг для вашего бизнеса
 </footer>
 
 </body>
